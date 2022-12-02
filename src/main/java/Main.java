@@ -4,13 +4,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> listaHaselDoZlamania = new ArrayList<Integer>();
-        listaHaselDoZlamania.add(5);
-        listaHaselDoZlamania.add(50000);
-        listaHaselDoZlamania.add(55000);
-        listaHaselDoZlamania.add(100010);
-        listaHaselDoZlamania.add(190000);
-
+        List<String> listaHaselDoZlamania = new ArrayList<>();
+        listaHaselDoZlamania.add("575c6b368bdc5915a846d28070e03908");
+        listaHaselDoZlamania.add("77dfb4d8d7d248f1439c99bbb727d49e");
+        listaHaselDoZlamania.add("4d775f10721c63af33dc9ce3ce89fae4");
+        listaHaselDoZlamania.add("7bc62a30570999711c310a6607ee9b75");
+        listaHaselDoZlamania.add("f74632a8ad34822025de08ff372bdd8f");
         List<String> listaHaselZlamanych = new ArrayList<String>();
 
         Thread producerThread1 = new Thread(new Producer(listaHaselDoZlamania,listaHaselZlamanych));
