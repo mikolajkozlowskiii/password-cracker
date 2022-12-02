@@ -1,51 +1,43 @@
 import java.util.List;
 
-public class Producer implements Runnable{
+public class ProducerUpperCase implements Runnable{
+    private List<String> dictionary;
     private List<String> listOfPasswords;
     private List<String> listOfCrackedPasswords;
 
-
-    public Producer(List<String> listOfPasswords, List<String> listOfCrackedPasswords) {
+    public ProducerUpperCase(List<String> dictionary, List<String> listOfPasswords, List<String> listOfCrackedPasswords) {
+        this.dictionary = dictionary;
         this.listOfPasswords = listOfPasswords;
         this.listOfCrackedPasswords = listOfCrackedPasswords;
     }
 
-
     @Override
     public void run() {
-        //while(!listaHaselDoZlamania.isEmpty())
-        int i = 0;
         while(true) {
-
-            i++;
+            for(String word : dictionary){
+                String wordToHash = word.toUpperCase();
+                String hashedWord = new Converter(wordToHash).convertToMD5ByGuava();
                 synchronized (listOfPasswords) {
                     if (listOfPasswords.isEmpty()) {
                         synchronized (listOfCrackedPasswords){
-                            System.out.println("koniec pord1");
+                            System.out.println("end of production");
                             listOfCrackedPasswords.add("-1");
                             listOfCrackedPasswords.notifyAll();
                         }
-                        break;
+                        return;
                     }
                     for(int j = 0; j<listOfPasswords.size(); j++){
-                        if(listOfPasswords.get(j) == i){
-                            System.out.println("Usuwamy haslo z listy, aktualna lista: " + listOfPasswords+"\n usuwamy:" +
-                                    i);
+                        if(listOfPasswords.get(j).equals(hashedWord)){
                             synchronized (listOfCrackedPasswords){
-                                listOfCrackedPasswords.add(String.valueOf(listOfPasswords.remove(j)));
-                                System.out.println(listOfCrackedPasswords);
+                                listOfPasswords.remove(j);
+                                listOfCrackedPasswords.add(wordToHash);
                                 listOfCrackedPasswords.notifyAll();
-
                             }
                         }
                     }
                 }
-               /* try{
-                    Thread.sleep(3000);
-                }catch (InterruptedException e){
-                    e.printStackTrace();
-                }*/
-
+            }
         }
     }
+
 }

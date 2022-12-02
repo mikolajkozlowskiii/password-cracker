@@ -15,11 +15,7 @@ class Consumer implements Runnable {
             synchronized (listHaselZlamanych) {
                 if (listHaselZlamanych.isEmpty()) {
                     try {
-                        System.out.println("przed wait");
                         listHaselZlamanych.wait();
-                        System.out.println("po wait");
-
-                        //System.out.println("wykona raz a we wczesniejszym programie pelno razy");
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt(); //ustawia status przerwania
                         throw new RuntimeException(e);
@@ -30,7 +26,7 @@ class Consumer implements Runnable {
                     System.out.println(Thread.currentThread().getName() + " exiting.");
                     break;
                 } else {
-                    System.out.println("Odebralem zlamane haslo (konusmentem jestewm) " + listHaselZlamanych.remove(0));
+                    System.out.println("Cracked password: " + listHaselZlamanych.remove(0));
                 }
             }
         }

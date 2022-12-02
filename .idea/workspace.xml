@@ -4,25 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5674de7c-b919-4551-b89e-5752d2123990" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_activation_jakarta_activation_2_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/md5test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Converter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FileReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5674de7c-b919-4551-b89e-5752d2123990" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/src/main/java/AbstractProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ProducerFirstLetterUp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ProducerUpperCase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/producerConsumer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/producerConsumer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Consumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Producer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Producer2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Producer2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProducerLowerCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Producer2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +43,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "last_directory_selection": "C:/Users/user/Desktop/producerConsumer/src/main/java"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -61,11 +52,14 @@
       <recent name="C:\Users\user\Desktop\producerConsumer" />
       <recent name="C:\Users\user\Desktop\producerConsumer\src" />
     </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="listOfPasswordsToCrack" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.test.Test">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="producerConsumer" />
@@ -88,8 +82,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.test.Test" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.test.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -101,7 +95,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1669969112786</updated>
-      <workItem from="1669969114555" duration="15102000" />
+      <workItem from="1669969114555" duration="20494000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1669989586976</created>
@@ -110,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669989586976</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update">
+      <created>1669998394566</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669998394567</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,6 +130,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>
