@@ -22,7 +22,6 @@ class Consumer implements Runnable {
                     }
                 }
                 if (listHaselZlamanych.get(0).equals("-1")) {
-                    System.out.println(listHaselZlamanych);
                     System.out.println(Thread.currentThread().getName() + " exiting.");
                     break;
                 } else {
