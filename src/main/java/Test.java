@@ -1,5 +1,14 @@
+import com.google.common.annotations.VisibleForTesting;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Locale;
+import java.util.Objects;
+
 public class Test {
-    public static void main(String[] args) {/*
+    public static void main(String[] args) {
+
+        /*
         List<String> list = new ArrayList<>();
         List<String> hasla = new ArrayList<>();
         File file = new File("md5test.txt");
@@ -24,6 +33,10 @@ public class Test {
     Converter converter = new Converter("aachenaardvark.");
     System.out.println(converter.convertToMD5ByMD());
     System.out.println(converter.convertToMD5ByGuava());
+        System.out.println(Objects.equals(null,null));
+        String a = null;
+        String b = null;
+        System.out.println(b.equals(a));
      /*   System.out.println("\n\n\n\n");
         String a = "5";
         String aa = "45";
@@ -38,5 +51,10 @@ public class Test {
         System.out.println(producerManager.getWordWithNumbers("czesc",765));
         System.out.println(producerManager.getWordWithNumbers("czesc",1034));
         System.out.println(producerManager.getWordWithNumbers("czesc",44521));*/
+
+    }
+
+    public void testSmth(){
+
     }
 }

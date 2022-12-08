@@ -1,8 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
         List<String> listOfPasswordsToCrack = new ArrayList<>();
         listOfPasswordsToCrack.add("575c6b368bdc5915a846d28070e03908");
         listOfPasswordsToCrack.add("77dfb4d8d7d248f1439c99bbb727d49e");
@@ -41,10 +43,19 @@ public class Main {
             thread.start();
         }
         consumerThread1.start();
+        while(true){
+            String msg = scan.nextLine();
+            System.out.println(msg.toUpperCase());
+            if(msg.equals("quit")){
+
+            }
+        }
     }
 }
 
-
+//stworzyc funkcje do tworzenia watkow, zawsze taka sama
+//ona sie bedzie wywolywac i jakby stworzyc nowe watki jesli przekazymy
+//jakis plik do otwarcia
 
 //pomyslec zeby dodac do Consumer wait zeby tyle nie sprawdzal wait i notify
 

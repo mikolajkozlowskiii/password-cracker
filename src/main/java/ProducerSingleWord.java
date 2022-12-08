@@ -6,12 +6,14 @@ public class ProducerSingleWord implements Runnable{
     private List<String> listOfCrackedPasswords;
     private WordStrategy strategy;
 
+
     public ProducerSingleWord(List<String> dictionary, List<String> listOfPasswords
             , List<String> listOfCrackedPasswords, WordStrategy strategy) {
         this.dictionary = dictionary;
         this.listOfPasswords = listOfPasswords;
         this.listOfCrackedPasswords = listOfCrackedPasswords;
         this.strategy = strategy;
+
     }
 
     @Override
