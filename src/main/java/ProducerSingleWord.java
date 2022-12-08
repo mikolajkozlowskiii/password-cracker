@@ -5,7 +5,7 @@ public class ProducerSingleWord implements Runnable{
     private List<String> listOfPasswords;
     private List<String> listOfCrackedPasswords;
     private WordStrategy strategy;
-
+    private volatile boolean isStopped;
 
     public ProducerSingleWord(List<String> dictionary, List<String> listOfPasswords
             , List<String> listOfCrackedPasswords, WordStrategy strategy) {
@@ -13,7 +13,11 @@ public class ProducerSingleWord implements Runnable{
         this.listOfPasswords = listOfPasswords;
         this.listOfCrackedPasswords = listOfCrackedPasswords;
         this.strategy = strategy;
+        this.isStopped = false;
+    }
 
+    public void setStopped(boolean stopped) {
+        isStopped = stopped;
     }
 
     @Override
@@ -21,6 +25,13 @@ public class ProducerSingleWord implements Runnable{
         int iteration = 0;
         while(true) {
             for(String word : dictionary){
+                if(isStopped){
+                    synchronized (listOfCrackedPasswords){
+                        listOfCrackedPasswords.add("-1");
+                        listOfCrackedPasswords.notifyAll();
+                        return;
+                    }
+                }
                 String wordToHash = new ProducerManager(strategy).getSingleWordToHash(word,iteration);
                 String hashedWord = new Converter(wordToHash).convertToMD5ByGuava();
                 synchronized (listOfPasswords) {
