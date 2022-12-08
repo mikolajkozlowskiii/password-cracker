@@ -30,7 +30,7 @@ public class Test {
     FileReader fileReader = new FileReader("md5test.txt","english3.txt");
     System.out.println(fileReader.readFileForPasswords());
     System.out.println(fileReader.readFileForDictionary().get(100001));
-    Converter converter = new Converter("aaronicaaronical");
+    Converter converter = new Converter("0bland2");
     System.out.println(converter.convertToMD5ByMD());
     System.out.println(converter.convertToMD5ByGuava());
 

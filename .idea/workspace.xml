@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5674de7c-b919-4551-b89e-5752d2123990" name="Changes" comment="before doing bad practises">
-      <change afterPath="$PROJECT_DIR$/haslo1.txt" afterDir="false" />
+    <list default="true" id="5674de7c-b919-4551-b89e-5752d2123990" name="Changes" comment="after doing bad practises">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ProducerDoubleWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProducerDoubleWord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ProducerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProducerManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ProducerSingleWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProducerSingleWord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1669969112786</updated>
       <workItem from="1669969114555" duration="38241000" />
-      <workItem from="1670432788987" duration="7911000" />
+      <workItem from="1670432788987" duration="8631000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1669989586976</created>
@@ -132,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670485323993</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="after doing bad practises">
+      <created>1670489713322</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670489713322</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,8 +156,8 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="update" />
     <MESSAGE value="Added double word producer" />
-    <MESSAGE value="after doing bad practises" />
     <MESSAGE value="before doing bad practises" />
-    <option name="LAST_COMMIT_MESSAGE" value="before doing bad practises" />
+    <MESSAGE value="after doing bad practises" />
+    <option name="LAST_COMMIT_MESSAGE" value="after doing bad practises" />
   </component>
 </project>

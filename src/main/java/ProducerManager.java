@@ -5,7 +5,9 @@ public class ProducerManager {
         this.producerStrategy = strategy;
     }
 
-    public String getSingleWordToHash(String word, int iteration){
+    public String getSingleWordToHash(String singleWord, PunctuationStrategy punctuation,
+                                      PunctuationStrategy.POSITION position, int iteration){
+        String word = connectOneWordByPunctuation(singleWord, punctuation, position);
         switch (producerStrategy){
             case WORD_TO_lOWER_CASE -> word = getWordToLowerCase(word);
             case WORD_TO_UPPER_CASE -> word =getWordToUpperCase(word);
