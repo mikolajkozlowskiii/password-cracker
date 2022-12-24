@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5674de7c-b919-4551-b89e-5752d2123990" name="Changes" comment="after doing bad practises">
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fruit1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fruit2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fruit3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fruits.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ProducerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProducerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ProducerDoubleWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProducerDoubleWord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ProducerSingleWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProducerSingleWord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +36,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/Main.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -34,16 +48,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/user/Desktop/producerConsumer/src/main/java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_directory_selection": "C:/Users/user/Desktop/producerConsumer/src/main/java",
+    "last_opened_file_path": "C:/Users/mikol/Desktop/passwordCracker/password-cracker",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mikol\Desktop\passwordCracker\password-cracker" />
       <recent name="C:\Users\user\Desktop\producerConsumer" />
       <recent name="C:\Users\user\Desktop\producerConsumer\src" />
     </key>
@@ -92,6 +110,7 @@
       <updated>1669969112786</updated>
       <workItem from="1669969114555" duration="38241000" />
       <workItem from="1670432788987" duration="8631000" />
+      <workItem from="1670491012655" duration="6467000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1669989586976</created>

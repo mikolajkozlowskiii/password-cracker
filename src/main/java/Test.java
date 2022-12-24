@@ -30,10 +30,42 @@ public class Test {
     FileReader fileReader = new FileReader("md5test.txt","english3.txt");
     System.out.println(fileReader.readFileForPasswords());
     System.out.println(fileReader.readFileForDictionary().get(100001));
-    Converter converter = new Converter("0bland2");
-    System.out.println(converter.convertToMD5ByMD());
-    System.out.println(converter.convertToMD5ByGuava());
+    Converter converter = new Converter("apple");
 
+    System.out.println(converter.convertToMD5ByGuava());
+        converter = new Converter("Banana");
+
+        System.out.println(converter.convertToMD5ByGuava());
+         converter = new Converter("ORANGE");
+
+        System.out.println(converter.convertToMD5ByGuava());
+        converter = new Converter("0Apple2");
+
+        System.out.println(converter.convertToMD5ByGuava());
+        converter = new Converter("0APPLE1");
+
+        System.out.println(converter.convertToMD5ByGuava());
+         converter = new Converter("appleorange");
+
+        System.out.println(converter.convertToMD5ByGuava());
+        converter = new Converter("lemon_lime");
+
+        System.out.println(converter.convertToMD5ByGuava());
+        converter = new Converter("kiwipeach.");
+
+        System.out.println(converter.convertToMD5ByGuava());
+         converter = new Converter("!durian");
+
+        System.out.println(converter.convertToMD5ByGuava());
+         converter = new Converter("Coconutmango");
+
+        System.out.println(converter.convertToMD5ByGuava());
+        converter = new Converter("MANGOPLUM");
+
+        System.out.println(converter.convertToMD5ByGuava());
+        converter = new Converter("fruit-durian");
+
+        System.out.println(converter.convertToMD5ByGuava());
 
     }
 

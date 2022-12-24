@@ -16,6 +16,7 @@ class Consumer implements Runnable {
                 if (listHaselZlamanych.isEmpty()) {
                     try {
                         listHaselZlamanych.wait();
+
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt(); //ustawia status przerwania
                         throw new RuntimeException(e);

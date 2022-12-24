@@ -9,23 +9,21 @@ public class Main {
         Main main = new Main();
         Scanner scan = new Scanner(System.in);
         List<String> listOfPasswordsToCrack = new ArrayList<>();
-        listOfPasswordsToCrack.add("575c6b368bdc5915a846d28070e03908");
-        listOfPasswordsToCrack.add("77dfb4d8d7d248f1439c99bbb727d49e");
-        listOfPasswordsToCrack.add("4d775f10721c63af33dc9ce3ce89fae4");
-        listOfPasswordsToCrack.add("7bc62a30570999711c310a6607ee9b75");
-        listOfPasswordsToCrack.add("f74632a8ad34822025de08ff372bdd8f");
-        listOfPasswordsToCrack.add("7bb8724f2fa47613857d17f63c4aaec1");
-        listOfPasswordsToCrack.add("73162e55e459ea072481fd373fce9af1");
-        listOfPasswordsToCrack.add("8fcd19e250bec54f452b4b4b8c2313dd");
+        listOfPasswordsToCrack.add("d154dfaf148b768ef9e0141f69f1e357");
+        listOfPasswordsToCrack.add("0d1d04685b9709a7aab52c0f1c9ad21d");
+        listOfPasswordsToCrack.add("098b3e2ac3be9a4f1fadf6f9979f2b3d");
+        listOfPasswordsToCrack.add("58994a7861109c87a8d8e6f4443e2e02");
 
-        listOfPasswordsToCrack.add("93c8d51f065f37c3ee500e8b90be7ea4");
-        listOfPasswordsToCrack.add("aa87c48637503af00f34b0cc6af47764");
-        listOfPasswordsToCrack.add("272a2b074d1dab5e4f5d12b7d8fa9828");
-        listOfPasswordsToCrack.add("16465ef68d5cc085851de7c38a17052a");
-        listOfPasswordsToCrack.add("3ac15e09bb65fbee753fea2344fbc584");
+/*
+
+
+098b3e2ac3be9a4f1fadf6f9979f2b3d
+58994a7861109c87a8d8e6f4443e2e02
+*
+* */
         List<String> listOfCrackedPasswords = new ArrayList<String>();
         List<String> listOfDictionary =
-                new FileReader("md5test.txt","english3.txt").readFileForDictionary();
+                new FileReader("md5test.txt","fruits.txt").readFileForDictionary();
 
         main.initializeSingleWordThreads(listOfDictionary,listOfPasswordsToCrack,listOfCrackedPasswords);
         main.initializeDoubleWordThreads(listOfDictionary,listOfPasswordsToCrack,listOfCrackedPasswords);

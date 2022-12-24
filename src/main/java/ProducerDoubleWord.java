@@ -62,7 +62,7 @@ public class ProducerDoubleWord implements Runnable{
                 //iterationFirstWord++;
             }
             iteration++;
-            System.out.println(iteration);
+           // System.out.println(iteration);
         }
     }
 }
