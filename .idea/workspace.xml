@@ -4,21 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5674de7c-b919-4551-b89e-5752d2123990" name="Changes" comment="after doing bad practises">
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fruit1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fruit2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fruit3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fruits.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5674de7c-b919-4551-b89e-5752d2123990" name="Changes" comment="after doing bad practises - added fruits">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Consumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ProducerDoubleWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProducerDoubleWord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ProducerSingleWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProducerSingleWord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +97,7 @@
       <updated>1669969112786</updated>
       <workItem from="1669969114555" duration="38241000" />
       <workItem from="1670432788987" duration="8631000" />
-      <workItem from="1670491012655" duration="6467000" />
+      <workItem from="1670491012655" duration="6952000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1669989586976</created>
@@ -154,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670489713322</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="after doing bad practises - added fruits">
+      <created>1671882312372</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671882312372</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +171,7 @@
     <MESSAGE value="Added double word producer" />
     <MESSAGE value="before doing bad practises" />
     <MESSAGE value="after doing bad practises" />
-    <option name="LAST_COMMIT_MESSAGE" value="after doing bad practises" />
+    <MESSAGE value="after doing bad practises - added fruits" />
+    <option name="LAST_COMMIT_MESSAGE" value="after doing bad practises - added fruits" />
   </component>
 </project>
