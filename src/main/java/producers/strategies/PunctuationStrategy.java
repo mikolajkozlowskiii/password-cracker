@@ -1,3 +1,5 @@
+package producers.strategies;
+
 public enum PunctuationStrategy {
     BLANK(""),
     DOT("."),
@@ -9,13 +11,12 @@ public enum PunctuationStrategy {
     UNDERSCORE("_"),
     SLASH("/"),
     BACKSLASH("\\");
-    enum POSITION{
+    public enum POSITION{
         FIRST,
         MIDDLE,
         LAST
     }
     private final String text;
-
     PunctuationStrategy(String text) {
         this.text = text;
     }

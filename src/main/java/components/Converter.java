@@ -1,3 +1,5 @@
+package components;
+
 import jakarta.xml.bind.DatatypeConverter;
 
 import java.security.MessageDigest;
@@ -5,15 +7,14 @@ import java.security.NoSuchAlgorithmException;
 import com.google.common.hash.HashCode;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
+import lombok.AllArgsConstructor;
+
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
+@AllArgsConstructor
 public class Converter {
     private String word;
-
-    public Converter(String word) {
-        this.word = word;
-    }
 
     public String convertToMD5ByMD()  {
         try{

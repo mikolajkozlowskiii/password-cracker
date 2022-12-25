@@ -1,19 +1,18 @@
+package components;
+
+import lombok.AllArgsConstructor;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
+@AllArgsConstructor
 public class FileReader {
     private String pathnameOfPasswords;
     private String pathnameOfDictionary;
-
-    public FileReader(String pathnameOfPasswords, String pathnameOfDictionary) {
-        this.pathnameOfPasswords = pathnameOfPasswords;
-        this.pathnameOfDictionary = pathnameOfDictionary;
-    }
 
     public List<String> readFileForPasswords(){
         List<String> list = new ArrayList<>();
