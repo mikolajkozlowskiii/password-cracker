@@ -108,7 +108,7 @@ public class Main {
 //ona sie bedzie wywolywac i jakby stworzyc nowe watki jesli przekazymy
 //jakis plik do otwarcia
 
-//pomyslec zeby dodac do Consumer wait zeby tyle nie sprawdzal wait i notify
+//pomyslec zeby dodac do Consumer wait zeby tyle nie sprawdzal wait i notifye
 
 
 
