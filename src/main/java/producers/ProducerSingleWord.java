@@ -1,16 +1,13 @@
 package producers;
 
 import components.Converter;
-import components.FileWriterSingleton;
 import constants.Constants;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import producers.strategies.CapitalizeStrategy;
 import producers.strategies.PunctuationStrategy;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Builder
@@ -20,7 +17,6 @@ public class ProducerSingleWord implements Runnable {
     private List<String> listOfCrackedPasswords;
     private final CapitalizeStrategy capitalizeStrategy;
     private final boolean isPunctuation;
-    private FileWriterSingleton writerSingleton;
     @Override
     public void run() {
         if(dictionary.isEmpty() || listOfPasswords.isEmpty()){
@@ -30,9 +26,6 @@ public class ProducerSingleWord implements Runnable {
                 return;
             }
         }
-        writerSingleton = FileWriterSingleton.getInstance();
-
-
         int iterationMainLoop = 0;
         final ProducerManager producerManager = new ProducerManager(capitalizeStrategy, isPunctuation);
         while (true) {
@@ -42,39 +35,46 @@ public class ProducerSingleWord implements Runnable {
                         final String formattedWord = producerManager.getHashedWord(word, punctuation,
                                         position, iterationMainLoop);
                         final String hashedWord = new Converter(formattedWord).convertToMD5ByGuava();
-                        synchronized (listOfPasswords) {
-                            if (checkIsAllPasswordsCracked()) {
+                            compareWordWithPasswords(formattedWord, hashedWord);
+                            if (isAllPasswordsCracked()) {
                                 return;
                             }
-                            checkIsPasswordOnListToCrack(formattedWord, hashedWord);
-                        }
                     }
                 }
             }
             iterationMainLoop++;
         }
     }
-    private void checkIsPasswordOnListToCrack(String formattedWord, String hashedWord) {
-        for (int j = 0; j < listOfPasswords.size(); j++) {
-            if (listOfPasswords.get(j).equals(hashedWord)) {
-                synchronized (listOfCrackedPasswords) {
-                    listOfPasswords.remove(j);
-                    listOfCrackedPasswords.add(formattedWord);
-                    listOfCrackedPasswords.notifyAll();
+    private void compareWordWithPasswords(String formattedWord, String hashedWord) {
+        synchronized (listOfPasswords) {
+            for (int j = 0; j < listOfPasswords.size(); j++) {
+                if (listOfPasswords.get(j).equals(hashedWord)) {
+                    addWordToConsumer(formattedWord, j);
                 }
             }
         }
     }
 
-    private boolean checkIsAllPasswordsCracked() {
-        if (listOfPasswords.isEmpty()) {
-            synchronized (listOfCrackedPasswords) {
-                listOfCrackedPasswords.add(Constants.allPasswordsCracked);
-                listOfCrackedPasswords.notifyAll();
-                return true;
-            }
+    private void addWordToConsumer(String formattedWord, int j) {
+        synchronized (listOfCrackedPasswords) {
+            listOfPasswords.remove(j);
+            listOfCrackedPasswords.add(formattedWord);
+            listOfCrackedPasswords.notifyAll();
         }
-        return false;
+    }
+
+
+    private boolean isAllPasswordsCracked() {
+        synchronized (listOfPasswords) {
+            if (listOfPasswords.isEmpty()) {
+                synchronized (listOfCrackedPasswords) {
+                    listOfCrackedPasswords.add(Constants.allPasswordsCracked);
+                    listOfCrackedPasswords.notifyAll();
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
 }
