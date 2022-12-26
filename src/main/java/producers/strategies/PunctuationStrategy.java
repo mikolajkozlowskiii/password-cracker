@@ -1,17 +1,17 @@
 package producers.strategies;
 
 public enum PunctuationStrategy {
-    BLANK(""),
     DOT("."),
     EXCLUSIVE("!"),
     HASHTAG("#"),
     COMMA(","),
     QUESTION("?"),
+    PERCENT("%"),
     HYPHEN("-"),
     UNDERSCORE("_"),
     SLASH("/"),
     BACKSLASH("\\");
-    public enum POSITION{
+    public enum Position {
         FIRST,
         MIDDLE,
         LAST

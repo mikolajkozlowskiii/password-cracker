@@ -11,10 +11,9 @@ import java.util.List;
 
 @AllArgsConstructor
 public class FileReader {
-    private String pathnameOfPasswords;
-    private String pathnameOfDictionary;
+    private String pathname;
 
-    public List<String> readFileForPasswords(){
+  /*  public List<String> readFileForPasswords(){
         List<String> list = new ArrayList<>();
         List<String> listTargetWords = new ArrayList<>();
         File file = new File(pathnameOfPasswords);
@@ -32,11 +31,24 @@ public class FileReader {
             listTargetWords.add(res[1]);
         }
         return listTargetWords;
-    }
+    }*/
 
     public List<String> readFileForDictionary(){
         List<String> listOfDicionary = new ArrayList<>();
-        File file = new File(pathnameOfDictionary);
+        File file = new File(pathname);
+        if(file.exists()){
+            try {
+                listOfDicionary = Files.readAllLines(file.toPath(), Charset.defaultCharset());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return listOfDicionary;
+    }
+
+    public List<String> read(){
+        List<String> listOfDicionary = new ArrayList<>();
+        File file = new File(pathname);
         if(file.exists()){
             try {
                 listOfDicionary = Files.readAllLines(file.toPath(), Charset.defaultCharset());

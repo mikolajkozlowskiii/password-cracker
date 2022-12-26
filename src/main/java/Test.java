@@ -23,7 +23,7 @@ public class Test {
         }
         System.out.println(hasla);
     }*/
-    FileReader fileReader = new FileReader("md5test.txt","english3.txt");
+ /*   FileReader fileReader = new FileReader("md5test.txt","english3.txt");
     System.out.println(fileReader.readFileForPasswords());
     System.out.println(fileReader.readFileForDictionary().get(100001));
     Converter converter = new Converter("apple");
@@ -60,6 +60,11 @@ public class Test {
 
         System.out.println(converter.convertToMD5ByGuava());
         converter = new Converter("fruit-durian");
+
+        System.out.println(converter.convertToMD5ByGuava());
+
+*/
+        Converter converter = new Converter("%Mangoplum");
 
         System.out.println(converter.convertToMD5ByGuava());
 

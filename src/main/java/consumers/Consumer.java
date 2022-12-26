@@ -9,6 +9,7 @@ import java.util.Objects;
 @AllArgsConstructor
 public class Consumer implements Runnable {
     private List<String> crackedPasswords;
+    private static int count = 0;
 
     @Override
     public void run() {
@@ -25,7 +26,8 @@ public class Consumer implements Runnable {
                     System.out.println(Thread.currentThread().getName() + " exiting.");
                     return;
                 } else {
-                    System.out.println("Cracked password: " + crackedPasswords.remove(0));
+                    count++;
+                    System.out.println(count+". Cracked password: " + crackedPasswords.remove(0));
                 }
             }
         }

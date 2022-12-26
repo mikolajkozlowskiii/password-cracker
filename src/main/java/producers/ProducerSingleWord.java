@@ -1,30 +1,46 @@
 package producers;
 
 import components.Converter;
+import components.FileWriterSingleton;
 import constants.Constants;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import producers.strategies.CapitalizeStrategy;
 import producers.strategies.PunctuationStrategy;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @AllArgsConstructor
 @Builder
 public class ProducerSingleWord implements Runnable {
     private List<String> dictionary;
     private List<String> listOfPasswords;
     private List<String> listOfCrackedPasswords;
-    private CapitalizeStrategy capitalizeStrategy;
+    private final CapitalizeStrategy capitalizeStrategy;
+    private final boolean isPunctuation;
+    private FileWriterSingleton writerSingleton;
     @Override
     public void run() {
+        if(dictionary.isEmpty() || listOfPasswords.isEmpty()){
+            synchronized (listOfCrackedPasswords){
+                listOfCrackedPasswords.add(Constants.allPasswordsCracked);
+                listOfCrackedPasswords.notifyAll();
+                return;
+            }
+        }
+        writerSingleton = FileWriterSingleton.getInstance();
+
+
         int iterationMainLoop = 0;
-        final ProducerManager producerManager = new ProducerManager(capitalizeStrategy);
+        final ProducerManager producerManager = new ProducerManager(capitalizeStrategy, isPunctuation);
         while (true) {
             for (String word : dictionary) {
                 for (PunctuationStrategy punctuation : PunctuationStrategy.values()) {
-                    for (PunctuationStrategy.POSITION punctuationPosition : PunctuationStrategy.POSITION.values()) {
+                    for (PunctuationStrategy.Position position : PunctuationStrategy.Position.values()) {
                         final String formattedWord = producerManager.getHashedWord(word, punctuation,
-                                        punctuationPosition, iterationMainLoop);
+                                        position, iterationMainLoop);
                         final String hashedWord = new Converter(formattedWord).convertToMD5ByGuava();
                         synchronized (listOfPasswords) {
                             if (checkIsAllPasswordsCracked()) {
@@ -62,3 +78,6 @@ public class ProducerSingleWord implements Runnable {
     }
 
 }
+
+//dodac zeby z listy usunely sie wszystkie hasla a nie jedo
+//dodac FileWriter
