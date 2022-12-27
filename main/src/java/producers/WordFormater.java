@@ -2,19 +2,19 @@ package producers;
 
 import lombok.AllArgsConstructor;
 import producers.strategies.CapitalizeStrategy;
+import producers.strategies.NumberStrategy;
 import producers.strategies.PunctuationStrategy;
 
 @AllArgsConstructor
-public class ProducerManager {
+public class WordFormater {
     private final CapitalizeStrategy capitalizeStrategy;
-    private final boolean isPunctuation;
+    private final NumberStrategy numberStrategy;
 
     public String getFormattedWord(String singleWord, PunctuationStrategy punctuation,
                                    PunctuationStrategy.Position position, int iteration){
         final String capitalizedWord = capitalizeStrategy.doFormat(singleWord);
-        final String connectedWord = (isPunctuation)?
-                getWordWithPunctuation(capitalizedWord, punctuation, position):capitalizedWord;
-        return getWordWithNumbers(connectedWord,iteration);
+        final String connectedWord = getWordWithPunctuation(capitalizedWord, punctuation, position);
+        return  numberStrategy.doFormat(connectedWord,iteration);
     }
 
     public String getFormattedWord(String firstWord, String secondWord, PunctuationStrategy punctuation,
@@ -23,12 +23,31 @@ public class ProducerManager {
         final String capitalizedSecondWord = (capitalizeStrategy.equals(CapitalizeStrategy.WORD_FIRST_LETTER_UP))?
                 secondWord
                 :capitalizeStrategy.doFormat(secondWord);
-        final String connectedWord = (isPunctuation)?
-                getWordWithPunctuation(capitalizedFirstWord,capitalizedSecondWord,punctuation,position)
-                :capitalizedFirstWord+capitalizedSecondWord;
+        final String connectedWord = getWordWithPunctuation(capitalizedFirstWord,capitalizedSecondWord,punctuation,position);
         final String capitalizedWord = capitalizeStrategy.doFormat(connectedWord);
-        return getWordWithNumbers(capitalizedWord,iteration);
+        return numberStrategy.doFormat(capitalizedWord,iteration);
     }
+
+    public String getFormattedWord(String singleWord, int iteration){
+        final String capitalizedWord = capitalizeStrategy.doFormat(singleWord);
+        return numberStrategy.doFormat(capitalizedWord,iteration);
+    }
+
+    public String getFormattedWord(String firstWord, String secondWord, int iteration){
+        final String capitalizedFirstWord = capitalizeStrategy.doFormat(firstWord);
+        final String capitalizedSecondWord = (capitalizeStrategy.equals(CapitalizeStrategy.WORD_FIRST_LETTER_UP))?
+                secondWord
+                :capitalizeStrategy.doFormat(secondWord);
+        final String connectedWord = capitalizedFirstWord+capitalizedSecondWord;
+        final String capitalizedWord = capitalizeStrategy.doFormat(connectedWord);
+        return numberStrategy.doFormat(capitalizedWord,iteration);
+    }
+
+
+
+
+
+
 
     private String getWordWithPunctuation(String word, PunctuationStrategy punctuation,
                                           PunctuationStrategy.Position position){
@@ -60,23 +79,5 @@ public class ProducerManager {
             default -> word = firstWord + secondWord;
         }
         return word;
-    }
-    private String getWordWithNumbers(String word, int iteration){
-        if(iteration == 0){ //if first iteration, we don't want to add any numbers
-            return word;
-        }
-        final int currentNum = iteration-1; //starting adding numbers from 0
-        final String currentNumStr = String.valueOf(currentNum);
-        final int numOfDigits = currentNumStr.length();
-        String leftNum, rightNum;
-        final int middleOfNum = numOfDigits/2;
-        if(numOfDigits%2==0){
-            leftNum = currentNumStr.substring(0,middleOfNum);
-        }
-        else{
-            leftNum = "0" + currentNumStr.substring(0,middleOfNum);
-        }
-        rightNum = currentNumStr.substring(middleOfNum);
-        return leftNum + word + rightNum;
     }
 }

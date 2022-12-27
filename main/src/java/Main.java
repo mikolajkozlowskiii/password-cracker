@@ -3,15 +3,17 @@ import consumers.Consumer;
 import producers.ProducerDoubleWord;
 import producers.ProducerSingleWord;
 import producers.strategies.CapitalizeStrategy;
+import producers.strategies.NumberStrategy;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class Main {
     public static void main(String[] args) {
-        final String passwordsPathname = "src/sample_inputs/english_words/randomEngWords1.txt";
-        final String dictionaryPathname = "src/sample_inputs/english_words/engDictionary.txt";
-        final String crackedPasswordsPathname = "src/sample_outputs/english_words/randomEngWords1.txt";
+        final String passwordsPathname = "sample_inputs/fruits/doubleWordFruits.txt";
+        final String dictionaryPathname = "sample_inputs/fruits/fruitsDictionary.txt";
+        final String crackedPasswordsPathname = "sample_outputs/fruits/doubleWordFruitsCracked.txt";
 
         List<String> passwordsToCrack = new FileReader(passwordsPathname).read();
         List<String> dictionary = new FileReader(dictionaryPathname).read();
@@ -39,15 +41,18 @@ public class Main {
                                                        List<String> crackedPasswords,
                                                        boolean isPunctuation){
         List<Runnable> producers = new ArrayList<>();
-        for(CapitalizeStrategy strategy : CapitalizeStrategy.values()){
-            producers.add(ProducerSingleWord
-                    .builder()
-                    .capitalizeStrategy(strategy)
-                    .dictionary(dictionary)
-                    .listOfPasswords(passwordToCrack)
-                    .listOfCrackedPasswords(crackedPasswords)
-                    .isPunctuation(isPunctuation)
-                    .build());
+        for(CapitalizeStrategy capitalizeStrategy : CapitalizeStrategy.values()){
+            for(NumberStrategy numberStrategy : NumberStrategy.values()){
+                producers.add(ProducerSingleWord
+                        .builder()
+                        .capitalizeStrategy(capitalizeStrategy)
+                        .dictionary(dictionary)
+                        .listOfPasswords(passwordToCrack)
+                        .listOfCrackedPasswords(crackedPasswords)
+                        .isPunctuation(isPunctuation)
+                        .numberStrategy(numberStrategy)
+                        .build());
+            }
         }
         return producers;
     }
@@ -56,16 +61,19 @@ public class Main {
                                                        List<String> crackedPasswords,
                                                        boolean isPunctuation){
         List<Runnable> producers = new ArrayList<>();
-        for(CapitalizeStrategy strategy : CapitalizeStrategy.values()){
-            producers.add(ProducerDoubleWord
-                    .builder()
-                    .capitalizeStrategy(strategy)
-                    .dictionary(dictionary)
-                    .listOfPasswords(passwordsToCrack)
-                    .listOfCrackedPasswords(crackedPasswords)
-                    .isPunctuation(isPunctuation)
-                    .build());
-        }
+        for(CapitalizeStrategy capitalizeStrategy : CapitalizeStrategy.values()){
+            for(NumberStrategy numberStrategy : NumberStrategy.values()){
+                producers.add(ProducerDoubleWord
+                        .builder()
+                        .capitalizeStrategy(capitalizeStrategy)
+                        .dictionary(dictionary)
+                        .listOfPasswords(passwordsToCrack)
+                        .listOfCrackedPasswords(crackedPasswords)
+                        .isPunctuation(isPunctuation)
+                        .numberStrategy(numberStrategy)
+                        .build());
+            }
+            }
         return producers;
     }
 }

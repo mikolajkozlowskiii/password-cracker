@@ -4,34 +4,59 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5674de7c-b919-4551-b89e-5752d2123990" name="Changes" comment="Added FileWriter to consumer">
-      <change afterPath="$PROJECT_DIR$/src/sample_inputs/english_words/engDictionary.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample_inputs/english_words/randomEngWords1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample_inputs/fruits/randomFruits.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample_inputs/fruits/singleWordFruits.txt" afterDir="false" />
+    <list default="true" id="5674de7c-b919-4551-b89e-5752d2123990" name="Changes" comment="Merged features">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_12_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_23_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/src/java/producers/strategies/NumberStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/src/test/java/components/ConverterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/src/test/java/producers/WordFormaterDiffCapitalizeStrategyTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/src/test/java/producers/doubleword/DoubleWordFormaterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/src/test/java/producers/singleword/SingleWordLowerCaseBothSidesFormaterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/src/test/java/producers/singleword/SingleWordLowerCaseLeftSideFormaterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/src/test/java/producers/singleword/SingleWordLowerCaseRightSideFormaterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/src/test/java/producers/singleword/SingleWordUpperCaseBothSidesFormaterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/src/test/java/producers/singleword/SingleWordUpperCaseLeftSideFormaterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/src/test/java/producers/singleword/SingleWordUpperCaseRightSideFormaterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Converter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/FileWriterSingleton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/consumers/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/consumers/Consumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/producers/ProducerDoubleWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/producers/ProducerDoubleWord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/producers/ProducerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/producers/ProducerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/producers/ProducerSingleWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/producers/ProducerSingleWord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/producers/strategies/CapitalizeStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/producers/strategies/CapitalizeStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/producers/strategies/PunctuationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/producers/strategies/PunctuationStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/producerConsumer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/producerConsumer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/src/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/src/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/src/java/components/Converter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/src/java/components/FileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/src/java/constants/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/consumers/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/src/java/consumers/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/producers/ProducerDoubleWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/src/java/producers/ProducerDoubleWord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/producers/ProducerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/src/java/producers/WordFormater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/producers/ProducerSingleWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/src/java/producers/ProducerSingleWord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/producers/strategies/CapitalizeStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/src/java/producers/strategies/CapitalizeStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/producers/strategies/PunctuationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/src/java/producers/strategies/PunctuationStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample_inputs/english_words/engDictionary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_inputs/english_words/engDictionary.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample_inputs/english_words/randomEngWords1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_inputs/english_words/randomEngWords1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample_inputs/fruits/doubleWordFruits.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_inputs/fruits/doubleWordFruits.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample_inputs/fruits/fruitsDictionary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_inputs/fruits/fruitsDictionary.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample_inputs/fruits/randomFruits.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_inputs/fruits/randomFruits.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample_inputs/fruits/singleWordFruits.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_inputs/fruits/singleWordFruits.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample_outputs/english_words/randomEngWords1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_outputs/english_words/randomEngWords1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample_outputs/fruits/doubleWordFruitsCracked.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_outputs/fruits/doubleWordFruitsCracked.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample_outputs/fruits/doubleWoredFruitsCracked.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_outputs/fruits/doubleWoredFruitsCracked.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample_outputs/fruits/doubleWorfdFruitsCracked.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_outputs/fruits/doubleWorfdFruitsCracked.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample_outputs/fruits/randomFruitsCracked.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_outputs/fruits/randomFruitsCracked.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample_outputs/fruits/singleWordFruitsCracked.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_outputs/fruits/singleWordFruitsCracked.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/components/Converter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/components/Converter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/consumers/Consumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/consumers/Consumer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/producers/ProducerDoubleWord$ProducerDoubleWordBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/ProducerDoubleWord$ProducerDoubleWordBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/producers/ProducerDoubleWord.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/ProducerDoubleWord.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/producers/ProducerManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/ProducerManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/producers/ProducerManager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/producers/ProducerManager.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/producers/ProducerSingleWord$ProducerSingleWordBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/ProducerSingleWord$ProducerSingleWordBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/producers/ProducerSingleWord.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/ProducerSingleWord.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/producers/strategies/CapitalizeStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/strategies/CapitalizeStrategy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/producers/strategies/PunctuationStrategy$Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/strategies/PunctuationStrategy$Position.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/producers/strategies/PunctuationStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/strategies/PunctuationStrategy.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,10 +68,14 @@
       <list>
         <option value="package-info" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="engDictionary" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -55,6 +84,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/main/src/java/Main.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -65,30 +97,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/user/Desktop/producerConsumer/src/main/java&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mikol/Desktop/passwordCracker/password-cracker&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_directory_selection": "C:/Users/user/Desktop/producerConsumer/src/main/java",
+    "last_opened_file_path": "C:/Users/mikol/Desktop/passwordCracker/password-cracker",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mikol\Desktop\kaczucha\password-cracker\main\src" />
+      <recent name="C:\Users\mikol\Desktop\kaczucha\password-cracker" />
       <recent name="C:\Users\mikol\Desktop\kaczucha\password-cracker\src\sample_inputs\english_words" />
       <recent name="C:\Users\mikol\Desktop\kaczucha\password-cracker\src\sample_inputs\fruits" />
       <recent name="C:\Users\mikol\Desktop\kaczucha\password-cracker\src" />
-      <recent name="C:\Users\mikol\Desktop\passwordCracker\password-cracker" />
-      <recent name="C:\Users\user\Desktop\producerConsumer" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="listOfPasswordsToCrack" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="components" />
+      <recent name="producers" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -112,10 +153,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SingleWordLowerCaseBothSidesFormaterTest.getFormattedSingleWordWithPunctuationAtLastPositiveIteration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="producerConsumer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="producers.singleword.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="producers.singleword" />
+      <option name="MAIN_CLASS_NAME" value="producers.singleword.SingleWordLowerCaseBothSidesFormaterTest" />
+      <option name="METHOD_NAME" value="getFormattedSingleWordWithPunctuationAtLastPositiveIteration" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SingleWordLowerCaseBothSidesFormaterTest.testGetFormattedWordAllParamsOk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="producerConsumer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="producers.doubleword.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="producers.singleword" />
+      <option name="MAIN_CLASS_NAME" value="producers.singleword.SingleWordLowerCaseBothSidesFormaterTest" />
+      <option name="METHOD_NAME" value="testGetFormattedWordAllParamsOk" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.SingleWordLowerCaseBothSidesFormaterTest.getFormattedSingleWordWithPunctuationAtLastPositiveIteration" />
+        <item itemvalue="JUnit.SingleWordLowerCaseBothSidesFormaterTest.testGetFormattedWordAllParamsOk" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -217,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672087262487</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Merged features">
+      <created>1672144920353</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1672144920353</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,27 +328,7 @@
     <MESSAGE value="added packages" />
     <MESSAGE value="Added fruitsDictionary.txt and FileWriterSingleton.java" />
     <MESSAGE value="Added FileWriter to consumer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added FileWriter to consumer" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/producers/ProducerManager.java</url>
-          <line>52</line>
-          <properties class="producers.ProducerManager" method="getWordWithPunctuation">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/src/main/java/producers/strategies/CapitalizeStrategy.java</url>
-          <line>15</line>
-          <properties field="WORD_FIRST_LETTER_UP" class="producers.strategies.CapitalizeStrategy" />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Merged features" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merged features" />
   </component>
 </project>

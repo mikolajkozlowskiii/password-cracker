@@ -5,6 +5,7 @@ import constants.Constants;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import producers.strategies.CapitalizeStrategy;
+import producers.strategies.NumberStrategy;
 import producers.strategies.PunctuationStrategy;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class ProducerDoubleWord implements Runnable{
     private final List<String> listOfPasswords;
     private final List<String> listOfCrackedPasswords;
     private final CapitalizeStrategy capitalizeStrategy;
+    private final NumberStrategy numberStrategy;
     private final boolean isPunctuation;
 
     @Override
@@ -26,24 +28,36 @@ public class ProducerDoubleWord implements Runnable{
             return;
         }
         AtomicInteger countMainLoop = new AtomicInteger(0);
-        final ProducerManager producerManager = new ProducerManager(capitalizeStrategy, isPunctuation);
+        final WordFormater wordFormater = new WordFormater(capitalizeStrategy,numberStrategy);
         while(true) {
-            for(String firstWord : dictionary){
-                for(String secondWord : dictionary){
+            crackPasswords(countMainLoop.get(), wordFormater);
+            if (checkIfAllPasswordsCracked()) {
+                return;
+            }
+            countMainLoop.incrementAndGet();
+        }
+    }
+
+    private void crackPasswords(int counter, WordFormater wordFormater) {
+        for(String firstWord : dictionary){
+            for(String secondWord : dictionary){
+                if(isPunctuation){
                     for(PunctuationStrategy punctuation : PunctuationStrategy.values()){
                         for(PunctuationStrategy.Position position : PunctuationStrategy.Position.values()){
-                            String formattedWord = producerManager
-                                    .getFormattedWord(firstWord,secondWord,punctuation,position,countMainLoop.get());
+                            String formattedWord = wordFormater
+                                    .getFormattedWord(firstWord,secondWord,punctuation,position, counter);
                             String hashedWord = new Converter(formattedWord).convertToMD5ByGuava();
-                            compareWordWithPasswds(formattedWord, hashedWord);
-                            if (checkIfAllPasswdsCracked()) {
-                                return;
-                            }
+                            compareWordWithPasswords(formattedWord, hashedWord);
                         }
                     }
                 }
+                else{
+                    String formattedWord = wordFormater
+                            .getFormattedWord(firstWord,secondWord, counter);
+                    String hashedWord = new Converter(formattedWord).convertToMD5ByGuava();
+                    compareWordWithPasswords(formattedWord, hashedWord);
+                }
             }
-            countMainLoop.incrementAndGet();
         }
     }
 
@@ -58,7 +72,7 @@ public class ProducerDoubleWord implements Runnable{
     }
 
 
-    private void compareWordWithPasswds(String formattedWord, String hashedWord) {
+    private void compareWordWithPasswords(String formattedWord, String hashedWord) {
         synchronized (listOfPasswords) {
             List<String> foundPasswords = listOfPasswords
                     .stream()
@@ -80,7 +94,7 @@ public class ProducerDoubleWord implements Runnable{
 
 
 
-    private boolean checkIfAllPasswdsCracked() {
+    private boolean checkIfAllPasswordsCracked() {
         synchronized (listOfPasswords) {
             if (listOfPasswords.isEmpty()) {
                 notifyEndConsumer();
