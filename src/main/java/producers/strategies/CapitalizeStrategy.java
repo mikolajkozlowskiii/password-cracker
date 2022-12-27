@@ -1,7 +1,7 @@
 package producers.strategies;
 
 public enum CapitalizeStrategy {
-    WORD_TO_lOWER_CASE{
+    WORD_TO_LOWER_CASE {
         @Override
         public String doFormat(String word){
             return word.toLowerCase();

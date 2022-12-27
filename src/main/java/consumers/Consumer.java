@@ -11,11 +11,9 @@ import java.util.Objects;
 
 @AllArgsConstructor
 public class Consumer implements Runnable {
-    private List<String> crackedPasswords;
-
+    private final List<String> crackedPasswords;
     private final String outputPathname;
-    private static int count = 0;
-
+    private static volatile int numOfCrackedPasswords = 0;
 
     @Override
     public void run() {
@@ -31,11 +29,13 @@ public class Consumer implements Runnable {
                 if (Objects.equals(crackedPasswords.get(0), Constants.allPasswordsCracked)) {
                     System.out.println(Thread.currentThread().getName() + " exiting.");
                     return;
-                } else {
+                }
+                else {
                     final String crackedPass = crackedPasswords.remove(0);
-                    count++;
-                    System.out.println(count+". Cracked password: " + crackedPass);
+                    numOfCrackedPasswords++;
                     writeToFile(crackedPass);
+                    System.out.printf("%d%s%s%n",numOfCrackedPasswords,
+                            ". Cracked password: ", crackedPass);
                 }
             }
         }

@@ -4,17 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5674de7c-b919-4551-b89e-5752d2123990" name="Changes" comment="Added fruitsDictionary.txt and FileWriterSingleton.java">
+    <list default="true" id="5674de7c-b919-4551-b89e-5752d2123990" name="Changes" comment="Added FileWriter to consumer">
+      <change afterPath="$PROJECT_DIR$/src/sample_inputs/english_words/engDictionary.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_inputs/english_words/randomEngWords1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_inputs/fruits/randomFruits.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_inputs/fruits/singleWordFruits.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/FileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Converter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/FileWriterSingleton.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/consumers/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/consumers/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/producers/ProducerDoubleWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/producers/ProducerDoubleWord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/producers/ProducerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/producers/ProducerManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/producers/ProducerSingleWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/producers/ProducerSingleWord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/producers/strategies/CapitalizeStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/producers/strategies/CapitalizeStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/producers/strategies/PunctuationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/producers/strategies/PunctuationStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/components/FileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/components/FileReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/components/Converter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/components/Converter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/consumers/Consumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/consumers/Consumer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/producers/ProducerDoubleWord$ProducerDoubleWordBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/ProducerDoubleWord$ProducerDoubleWordBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/producers/ProducerDoubleWord.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/ProducerDoubleWord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/producers/ProducerManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/ProducerManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/producers/ProducerSingleWord$ProducerSingleWordBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/ProducerSingleWord$ProducerSingleWordBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/producers/ProducerSingleWord.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/ProducerSingleWord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/producers/strategies/CapitalizeStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/strategies/CapitalizeStrategy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/producers/strategies/PunctuationStrategy$Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/strategies/PunctuationStrategy$Position.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/producers/strategies/PunctuationStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/strategies/PunctuationStrategy.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,9 +42,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -61,11 +78,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\mikol\Desktop\kaczucha\password-cracker\src" />
+      <recent name="C:\Users\mikol\Desktop\kaczucha\password-cracker\src\sample_inputs\english_words" />
       <recent name="C:\Users\mikol\Desktop\kaczucha\password-cracker\src\sample_inputs\fruits" />
+      <recent name="C:\Users\mikol\Desktop\kaczucha\password-cracker\src" />
       <recent name="C:\Users\mikol\Desktop\passwordCracker\password-cracker" />
       <recent name="C:\Users\user\Desktop\producerConsumer" />
-      <recent name="C:\Users\user\Desktop\producerConsumer\src" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="listOfPasswordsToCrack" />
@@ -114,7 +131,7 @@
       <workItem from="1670432788987" duration="8631000" />
       <workItem from="1670491012655" duration="7162000" />
       <workItem from="1671883039496" duration="6000" />
-      <workItem from="1671995169337" duration="34538000" />
+      <workItem from="1671995169337" duration="43870000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1669989586976</created>
@@ -193,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672065774154</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added FileWriter to consumer">
+      <created>1672087262487</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1672087262487</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +244,8 @@
     <MESSAGE value="after doing bad practises - added fruits v3" />
     <MESSAGE value="added packages" />
     <MESSAGE value="Added fruitsDictionary.txt and FileWriterSingleton.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added fruitsDictionary.txt and FileWriterSingleton.java" />
+    <MESSAGE value="Added FileWriter to consumer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added FileWriter to consumer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -233,15 +258,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/producers/ProducerSingleWord.java</url>
-          <line>20</line>
-          <properties class="producers.ProducerSingleWord" method="run">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/main/java/producers/strategies/CapitalizeStrategy.java</url>

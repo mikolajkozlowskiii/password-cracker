@@ -21,8 +21,7 @@ public class Converter {
             MessageDigest md = MessageDigest.getInstance("MD5");
             md.update(word.getBytes());
             byte[] digest = md.digest();
-            String myHash = DatatypeConverter.printHexBinary(digest).toLowerCase(Locale.ROOT);
-            return myHash;
+            return DatatypeConverter.printHexBinary(digest).toLowerCase(Locale.ROOT);
         }catch (NoSuchAlgorithmException ex){
             ex.printStackTrace();
             return null;

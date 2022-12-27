@@ -1,6 +1,8 @@
 import components.Converter;
 import components.FileReader;
 
+import java.util.List;
+
 public class Test {
     public static void main(String[] args) {
 
@@ -64,9 +66,24 @@ public class Test {
         System.out.println(converter.convertToMD5ByGuava());
 
 */
-        Converter converter = new Converter("%Mangoplum");
+        test(List.of("car!",
+                "_ANYBODY",
+        "0Anthony4",
+                "Cloud$",
+        "2December4",
+                "Diego",
+        "DOCTOR.",
+                "/Goverment",
+        "admin-adidas",
+        "APOLLOBARBIE",
+        "beach_cargo"));
 
-        System.out.println(converter.convertToMD5ByGuava());
+    }
+    public static void test(List<String> list){
+        for(String str : list){
+            Converter converter = new Converter(str);
+            System.out.println(converter.convertToMD5ByGuava());
+        }
 
     }
 

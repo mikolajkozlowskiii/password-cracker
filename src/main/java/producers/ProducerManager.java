@@ -9,16 +9,16 @@ public class ProducerManager {
     private final CapitalizeStrategy capitalizeStrategy;
     private final boolean isPunctuation;
 
-    public String getHashedWord(String singleWord, PunctuationStrategy punctuation,
-                                PunctuationStrategy.Position position, int iteration){
+    public String getFormattedWord(String singleWord, PunctuationStrategy punctuation,
+                                   PunctuationStrategy.Position position, int iteration){
         final String capitalizedWord = capitalizeStrategy.doFormat(singleWord);
         final String connectedWord = (isPunctuation)?
                 getWordWithPunctuation(capitalizedWord, punctuation, position):capitalizedWord;
         return getWordWithNumbers(connectedWord,iteration);
     }
 
-    public String getHashedWord(String firstWord, String secondWord, PunctuationStrategy punctuation,
-                                PunctuationStrategy.Position position, int iteration){
+    public String getFormattedWord(String firstWord, String secondWord, PunctuationStrategy punctuation,
+                                   PunctuationStrategy.Position position, int iteration){
         final String capitalizedFirstWord = capitalizeStrategy.doFormat(firstWord);
         final String capitalizedSecondWord = (capitalizeStrategy.equals(CapitalizeStrategy.WORD_FIRST_LETTER_UP))?
                 secondWord

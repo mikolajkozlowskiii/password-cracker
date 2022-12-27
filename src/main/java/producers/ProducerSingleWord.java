@@ -8,74 +8,92 @@ import producers.strategies.CapitalizeStrategy;
 import producers.strategies.PunctuationStrategy;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Builder
 public class ProducerSingleWord implements Runnable {
-    private List<String> dictionary;
-    private List<String> listOfPasswords;
-    private List<String> listOfCrackedPasswords;
+    private final List<String> dictionary;
+    private final List<String> listOfPasswords;
+    private final List<String> listOfCrackedPasswords;
     private final CapitalizeStrategy capitalizeStrategy;
     private final boolean isPunctuation;
+
     @Override
     public void run() {
-        if(dictionary.isEmpty() || listOfPasswords.isEmpty()){
-            synchronized (listOfCrackedPasswords){
-                listOfCrackedPasswords.add(Constants.allPasswordsCracked);
-                listOfCrackedPasswords.notifyAll();
-                return;
-            }
+        if (checkIfInputsEmpty()){
+            return;
         }
-        int iterationMainLoop = 0;
+        AtomicInteger countMainLoop = new AtomicInteger(0);
         final ProducerManager producerManager = new ProducerManager(capitalizeStrategy, isPunctuation);
         while (true) {
             for (String word : dictionary) {
                 for (PunctuationStrategy punctuation : PunctuationStrategy.values()) {
                     for (PunctuationStrategy.Position position : PunctuationStrategy.Position.values()) {
-                        final String formattedWord = producerManager.getHashedWord(word, punctuation,
-                                        position, iterationMainLoop);
+                        final String formattedWord = producerManager.getFormattedWord(word, punctuation,
+                                        position, countMainLoop.get());
                         final String hashedWord = new Converter(formattedWord).convertToMD5ByGuava();
-                            compareWordWithPasswords(formattedWord, hashedWord);
-                            if (isAllPasswordsCracked()) {
-                                return;
-                            }
+                        compareWordWithPasswds(formattedWord, hashedWord);
+                        if (checkIfAllPasswdsCracked()) {
+                            return;
+                        }
                     }
                 }
             }
-            iterationMainLoop++;
+            countMainLoop.incrementAndGet();
         }
     }
-    private void compareWordWithPasswords(String formattedWord, String hashedWord) {
+
+    private boolean checkIfInputsEmpty() {
+        synchronized (listOfPasswords){
+            if(dictionary.isEmpty() || listOfPasswords.isEmpty()){
+                notifyEndConsumer();
+                return true;
+            }
+            return false;
+        }
+    }
+
+
+    private void compareWordWithPasswds(String formattedWord, String hashedWord) {
         synchronized (listOfPasswords) {
-            for (int j = 0; j < listOfPasswords.size(); j++) {
-                if (listOfPasswords.get(j).equals(hashedWord)) {
-                    addWordToConsumer(formattedWord, j);
-                }
+            List<String> foundPasswords = listOfPasswords
+                    .stream()
+                    .filter(s -> Objects.equals(s, hashedWord))
+                    .toList();
+            if(!foundPasswords.isEmpty()){
+                addWordToConsumer(formattedWord, foundPasswords);
             }
         }
     }
 
-    private void addWordToConsumer(String formattedWord, int j) {
+    private void addWordToConsumer(String formattedWord, List<String> foundPasswords) {
         synchronized (listOfCrackedPasswords) {
-            listOfPasswords.remove(j);
+            listOfPasswords.removeAll(foundPasswords);
             listOfCrackedPasswords.add(formattedWord);
             listOfCrackedPasswords.notifyAll();
         }
     }
 
 
-    private boolean isAllPasswordsCracked() {
+    private boolean checkIfAllPasswdsCracked() {
         synchronized (listOfPasswords) {
             if (listOfPasswords.isEmpty()) {
-                synchronized (listOfCrackedPasswords) {
-                    listOfCrackedPasswords.add(Constants.allPasswordsCracked);
-                    listOfCrackedPasswords.notifyAll();
-                    return true;
-                }
+                notifyEndConsumer();
+                return true;
             }
             return false;
         }
     }
+    private void notifyEndConsumer() {
+        synchronized (listOfCrackedPasswords){
+            listOfCrackedPasswords.add(Constants.allPasswordsCracked);
+            listOfCrackedPasswords.notifyAll();
+        }
+    }
+
 
 }
 

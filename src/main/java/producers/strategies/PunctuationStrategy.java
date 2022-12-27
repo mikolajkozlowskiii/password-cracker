@@ -2,6 +2,8 @@ package producers.strategies;
 
 public enum PunctuationStrategy {
     DOT("."),
+    DOLLAR("$"),
+    STAR("*"),
     EXCLUSIVE("!"),
     HASHTAG("#"),
     COMMA(","),
