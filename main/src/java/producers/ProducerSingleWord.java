@@ -45,14 +45,14 @@ public class ProducerSingleWord implements Runnable {
                     for (PunctuationStrategy.Position position : PunctuationStrategy.Position.values()) {
                         final String formattedWord = wordFormater.getFormattedWord(word, punctuation,
                                 position, count);
-                        final String hashedWord = new Converter(formattedWord).convertToMD5ByGuava();
+                        final String hashedWord = new Converter().convertToMD5ByGuava(formattedWord);
                         compareWordWithPasswds(formattedWord, hashedWord);
                     }
                 }
             }
             else{
                 final String formattedWord = wordFormater.getFormattedWord(word,count);
-                final String hashedWord = new Converter(formattedWord).convertToMD5ByGuava();
+                final String hashedWord = new Converter().convertToMD5ByGuava(formattedWord);
                 compareWordWithPasswds(formattedWord, hashedWord);
             }
 

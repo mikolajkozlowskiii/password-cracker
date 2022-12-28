@@ -12,13 +12,21 @@ public class WordFormater {
 
     public String getFormattedWord(String singleWord, PunctuationStrategy punctuation,
                                    PunctuationStrategy.Position position, int iteration){
+        validatePunctuation(singleWord);
         final String capitalizedWord = capitalizeStrategy.doFormat(singleWord);
         final String connectedWord = getWordWithPunctuation(capitalizedWord, punctuation, position);
         return  numberStrategy.doFormat(connectedWord,iteration);
     }
 
+    private void validatePunctuation(String singleWord) {
+        if(singleWord == null){
+            throw new IllegalArgumentException("word can't be null.");
+        }
+    }
+
     public String getFormattedWord(String firstWord, String secondWord, PunctuationStrategy punctuation,
                                    PunctuationStrategy.Position position, int iteration){
+        validatePunctuation(firstWord, secondWord);
         final String capitalizedFirstWord = capitalizeStrategy.doFormat(firstWord);
         final String capitalizedSecondWord = (capitalizeStrategy.equals(CapitalizeStrategy.WORD_FIRST_LETTER_UP))?
                 secondWord
@@ -26,6 +34,12 @@ public class WordFormater {
         final String connectedWord = getWordWithPunctuation(capitalizedFirstWord,capitalizedSecondWord,punctuation,position);
         final String capitalizedWord = capitalizeStrategy.doFormat(connectedWord);
         return numberStrategy.doFormat(capitalizedWord,iteration);
+    }
+
+    private void validatePunctuation(String firstWord, String secondWord) {
+        if (firstWord == null || secondWord == null) {
+            throw new IllegalArgumentException("word can't be null.");
+        }
     }
 
     public String getFormattedWord(String singleWord, int iteration){
@@ -51,6 +65,8 @@ public class WordFormater {
 
     private String getWordWithPunctuation(String word, PunctuationStrategy punctuation,
                                           PunctuationStrategy.Position position){
+        validatePunctuation(word);
+        validatePunctuation(punctuation, position);
         String resultWord;
         switch (position){
             case FIRST -> resultWord = punctuation.toString() + word;
@@ -69,8 +85,17 @@ public class WordFormater {
         }
         return resultWord;
     }
+
+    private void validatePunctuation(PunctuationStrategy punctuation, PunctuationStrategy.Position position) {
+        if(punctuation == null || position == null){
+            throw new IllegalArgumentException("Strategy can't be null.");
+        }
+    }
+
     private String getWordWithPunctuation(String firstWord, String secondWord, PunctuationStrategy punctuation,
                                           PunctuationStrategy.Position position){
+        validatePunctuation(firstWord,secondWord);
+        validatePunctuation(punctuation,position);
         String word;
         switch (position){
             case FIRST -> word = punctuation.toString() + firstWord + secondWord;

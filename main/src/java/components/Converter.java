@@ -14,9 +14,8 @@ import java.util.Locale;
 
 @AllArgsConstructor
 public class Converter {
-    private String word;
-
-    public String convertToMD5ByMD()  {
+    public String convertToMD5ByMD(String word)  {
+        validateValue(word);
         try{
             MessageDigest md = MessageDigest.getInstance("MD5");
             md.update(word.getBytes());
@@ -27,9 +26,17 @@ public class Converter {
             return null;
         }
     }
-    public String convertToMD5ByGuava()  {
+
+    public String convertToMD5ByGuava(String word)  {
+        validateValue(word);
         HashFunction hashFunction = Hashing.md5();
         HashCode hash = hashFunction.hashString(word, StandardCharsets.UTF_8);
         return hash.toString();
+    }
+
+    private void validateValue(String word) {
+        if(word == null){
+            throw new IllegalArgumentException("Value can't be null.");
+        }
     }
 }

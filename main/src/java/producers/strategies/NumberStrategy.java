@@ -4,18 +4,24 @@ public enum NumberStrategy {
     LEFT_SIDE{
         @Override
         public String doFormat(String word, int iteration){
+            validateWord(word);
+            validateIteration(iteration);
             return iteration+word;
         }
     },
     RIGHT_SIDE{
         @Override
         public String doFormat(String word, int iteration){
+            validateWord(word);
+            validateIteration(iteration);
             return word+iteration;
         }
     },
     BOTH_SIDES{
         @Override
         public String doFormat(String word, int iteration){
+            validateWord(word);
+            validateIteration(iteration);
             if(iteration == 0){ //if first iteration, we don't want to add any numbers
                 return word;
             }
@@ -34,5 +40,18 @@ public enum NumberStrategy {
             return leftNum + word + rightNum;
         }
     };
+
+    private static void validateIteration(int iteration) {
+        if(iteration <0){
+            throw new IllegalArgumentException("Iteration can't be negative.");
+        }
+    }
+
+    private static void validateWord(String word) {
+        if(word ==null){
+            throw new IllegalArgumentException("Word can't be null");
+        }
+    }
+
     public abstract String doFormat(String word, int iteration);
 }

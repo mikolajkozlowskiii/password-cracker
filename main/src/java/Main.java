@@ -11,9 +11,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        final String passwordsPathname = "sample_inputs/fruits/doubleWordFruits.txt";
+        final String passwordsPathname = "sample_inputs/fruits/randomFruits.txt";
         final String dictionaryPathname = "sample_inputs/fruits/fruitsDictionary.txt";
-        final String crackedPasswordsPathname = "sample_outputs/fruits/doubleWordFruitsCracked.txt";
+        final String crackedPasswordsPathname = "sample_outputs/fruits/randomFruitsCracked.txt";
 
         List<String> passwordsToCrack = new FileReader(passwordsPathname).read();
         List<String> dictionary = new FileReader(dictionaryPathname).read();

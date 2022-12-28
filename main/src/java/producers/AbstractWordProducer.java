@@ -3,7 +3,9 @@ package producers;
 import components.Converter;
 import constants.Constants;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import producers.strategies.CapitalizeStrategy;
 import producers.strategies.NumberStrategy;
 import producers.strategies.PunctuationStrategy;
@@ -13,23 +15,22 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @AllArgsConstructor
-@Builder
-public class ProducerDoubleWord implements Runnable{
+@Data
+public abstract class AbstractWordProducer implements Runnable{
     private final List<String> dictionary;
     private final List<String> listOfPasswords;
     private final List<String> listOfCrackedPasswords;
     private final CapitalizeStrategy capitalizeStrategy;
     private final NumberStrategy numberStrategy;
     private final boolean isPunctuation;
-
     @Override
     public void run() {
         if (checkIfInputsEmpty()){
             return;
         }
         AtomicInteger countMainLoop = new AtomicInteger(0);
-        final WordFormater wordFormater = new WordFormater(capitalizeStrategy,numberStrategy);
-        while(true) {
+        final WordFormater wordFormater = new WordFormater(capitalizeStrategy, numberStrategy);
+        while (true) {
             crackPasswords(countMainLoop.get(), wordFormater);
             if (checkIfAllPasswordsCracked()) {
                 return;
@@ -38,28 +39,27 @@ public class ProducerDoubleWord implements Runnable{
         }
     }
 
-    private void crackPasswords(int counter, WordFormater wordFormater) {
-        for(String firstWord : dictionary){
-            for(String secondWord : dictionary){
-                if(isPunctuation){
-                    for(PunctuationStrategy punctuation : PunctuationStrategy.values()){
-                        for(PunctuationStrategy.Position position : PunctuationStrategy.Position.values()){
-                            String formattedWord = wordFormater
-                                    .getFormattedWord(firstWord,secondWord,punctuation,position, counter);
-                            String hashedWord = new Converter().convertToMD5ByGuava(formattedWord);
-                            compareWordWithPasswords(formattedWord, hashedWord);
-                        }
+    private void crackPasswords(int count, WordFormater wordFormater) {
+        for (String word : dictionary) {
+            if(isPunctuation){
+                for (PunctuationStrategy punctuation : PunctuationStrategy.values()) {
+                    for (PunctuationStrategy.Position position : PunctuationStrategy.Position.values()) {
+                        final String formattedWord = wordFormater.getFormattedWord(word, punctuation,
+                                position, count);
+                        final String hashedWord = new Converter().convertToMD5ByGuava(formattedWord);
+                        compareWordWithPasswds(formattedWord, hashedWord);
                     }
                 }
-                else{
-                    String formattedWord = wordFormater
-                            .getFormattedWord(firstWord,secondWord, counter);
-                    String hashedWord = new Converter().convertToMD5ByGuava(formattedWord);
-                    compareWordWithPasswords(formattedWord, hashedWord);
-                }
             }
+            else{
+                final String formattedWord = wordFormater.getFormattedWord(word,count);
+                final String hashedWord = new Converter().convertToMD5ByGuava(formattedWord);
+                compareWordWithPasswds(formattedWord, hashedWord);
+            }
+
         }
     }
+
 
     private boolean checkIfInputsEmpty() {
         synchronized (listOfPasswords){
@@ -72,7 +72,7 @@ public class ProducerDoubleWord implements Runnable{
     }
 
 
-    private void compareWordWithPasswords(String formattedWord, String hashedWord) {
+    private void compareWordWithPasswds(String formattedWord, String hashedWord) {
         synchronized (listOfPasswords) {
             List<String> foundPasswords = listOfPasswords
                     .stream()
@@ -91,7 +91,6 @@ public class ProducerDoubleWord implements Runnable{
             listOfCrackedPasswords.notifyAll();
         }
     }
-
 
 
     private boolean checkIfAllPasswordsCracked() {
