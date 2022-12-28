@@ -1,12 +1,18 @@
 import components.FileReader;
 import consumers.Consumer;
 import producers.ProducerDoubleWord;
+import producers.ProducerManager;
 import producers.ProducerSingleWord;
+import producers.WordFormater;
 import producers.strategies.CapitalizeStrategy;
 import producers.strategies.NumberStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.stream.Collectors;
 
 
 public class Main {
@@ -15,13 +21,18 @@ public class Main {
         final String dictionaryPathname = "sample_inputs/fruits/fruitsDictionary.txt";
         final String crackedPasswordsPathname = "sample_outputs/fruits/randomFruitsCracked.txt";
 
-        List<String> passwordsToCrack = new FileReader(passwordsPathname).read();
-        List<String> dictionary = new FileReader(dictionaryPathname).read();
-        List<String> crackedPasswords = new ArrayList<>();
+        final List<String> passwordsList = new FileReader(passwordsPathname).read();
+        final List<String> dictionaryList = new FileReader(dictionaryPathname).read();
+
+        final CopyOnWriteArrayList<String> dictionary = new CopyOnWriteArrayList<>(dictionaryList);
+        final CopyOnWriteArrayList<String> passwordsToCrack = new CopyOnWriteArrayList<>(passwordsList);
+        final BlockingQueue crackedPasswords = new ArrayBlockingQueue(10);
 
         List<Runnable> producers = new ArrayList<>();
-        producers.addAll(getListOfDoubleWordProducers(dictionary,passwordsToCrack,crackedPasswords,true));
-        producers.addAll(getListOfDoubleWordProducers(dictionary,passwordsToCrack,crackedPasswords,false));
+        producers.addAll(getListOfDoubleWordProducers(getListOfProducerManagers
+                (dictionary,passwordsToCrack,crackedPasswords,getListOfWordFormater(),true)));
+        producers.addAll(getListOfDoubleWordProducers(getListOfProducerManagers
+                (dictionary,passwordsToCrack,crackedPasswords,getListOfWordFormater(),false)));
         producers.addAll(getListOfSingleWordProducers(dictionary,passwordsToCrack,crackedPasswords,true));
         producers.addAll(getListOfSingleWordProducers(dictionary,passwordsToCrack,crackedPasswords,false));
         List<Thread> producersThreads = new ArrayList<>();
@@ -36,9 +47,18 @@ public class Main {
         }
 
     }
-    public static List<Runnable> getListOfSingleWordProducers(List<String> dictionary,
-                                                       List<String> passwordToCrack,
-                                                       List<String> crackedPasswords,
+    public static List<WordFormater> getListOfWordFormater(){
+        List<WordFormater> wordFormaters = new ArrayList<>();
+        for(CapitalizeStrategy capitalizeStrategy : CapitalizeStrategy.values()) {
+            for (NumberStrategy numberStrategy : NumberStrategy.values()) {
+                wordFormaters.add(new WordFormater(capitalizeStrategy,numberStrategy));
+            }
+        }
+        return wordFormaters;
+    }
+    public static List<Runnable> getListOfSingleWordProducers(CopyOnWriteArrayList<String> dictionary,
+                                                       CopyOnWriteArrayList<String> passwordToCrack,
+                                                       CopyOnWriteArrayList<String> crackedPasswords,
                                                        boolean isPunctuation){
         List<Runnable> producers = new ArrayList<>();
         for(CapitalizeStrategy capitalizeStrategy : CapitalizeStrategy.values()){
@@ -56,25 +76,31 @@ public class Main {
         }
         return producers;
     }
-    public static List<Runnable> getListOfDoubleWordProducers(List<String> dictionary,
-                                                       List<String> passwordsToCrack,
-                                                       List<String> crackedPasswords,
+    public static List<ProducerManager> getListOfProducerManagers(CopyOnWriteArrayList<String> dictionary,
+                                                       CopyOnWriteArrayList<String> passwordsToCrack,
+                                                       CopyOnWriteArrayList<String> crackedPasswords,
+                                                       List<WordFormater> wordFormaters,
                                                        boolean isPunctuation){
-        List<Runnable> producers = new ArrayList<>();
-        for(CapitalizeStrategy capitalizeStrategy : CapitalizeStrategy.values()){
-            for(NumberStrategy numberStrategy : NumberStrategy.values()){
-                producers.add(ProducerDoubleWord
+        return wordFormaters
+                .stream()
+                .map(s->ProducerManager
                         .builder()
-                        .capitalizeStrategy(capitalizeStrategy)
-                        .dictionary(dictionary)
-                        .listOfPasswords(passwordsToCrack)
+                        .wordFormater(s)
                         .listOfCrackedPasswords(crackedPasswords)
+                        .listOfPasswords(passwordsToCrack)
+                        .dictionary(dictionary)
                         .isPunctuation(isPunctuation)
-                        .numberStrategy(numberStrategy)
-                        .build());
-            }
-            }
-        return producers;
+                        .build())
+                .toList();
+    }
+    public static List<ProducerDoubleWord> getListOfDoubleWordProducers(List<ProducerManager> producerManagers){
+        return producerManagers
+                .stream()
+                .map(s->ProducerDoubleWord
+                        .builder()
+                        .producerManager(s)
+                        .build())
+                .toList();
     }
 }
-//
+//stworzyc WordFormatera i go przypisac

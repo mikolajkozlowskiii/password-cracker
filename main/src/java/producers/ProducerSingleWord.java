@@ -10,14 +10,15 @@ import producers.strategies.PunctuationStrategy;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @AllArgsConstructor
 @Builder
 public class ProducerSingleWord implements Runnable {
-    private final List<String> dictionary;
-    private final List<String> listOfPasswords;
-    private final List<String> listOfCrackedPasswords;
+    private final CopyOnWriteArrayList<String> dictionary;
+    private final CopyOnWriteArrayList<String> listOfPasswords;
+    private final CopyOnWriteArrayList<String> listOfCrackedPasswords;
     private final CapitalizeStrategy capitalizeStrategy;
     private final NumberStrategy numberStrategy;
     private final boolean isPunctuation;

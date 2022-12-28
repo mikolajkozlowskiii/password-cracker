@@ -8,17 +8,41 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 @AllArgsConstructor
 public class Consumer implements Runnable {
-    private final List<String> crackedPasswords;
+    private final BlockingQueue<String> crackedPasswords;
     private final String outputPathname;
-    private static volatile int numOfCrackedPasswords = 0;
+    private static AtomicLong counter = new AtomicLong(0);
+    private final String poisonPill = Constants.allPasswordsCracked;
 
     @Override
     public void run() {
-        while (true) {
-            synchronized (crackedPasswords) {
+        try {
+            while (true) {
+                final String crackedPassword = crackedPasswords.take();
+                if (crackedPassword.equals(poisonPill)) {
+                    System.out.println(Thread.currentThread().getName() + " exiting.");
+                    return;
+                }
+                counter.getAndIncrement();
+                writeToFile(crackedPassword);
+                System.out.printf("%d%s%s%n",counter.get(),
+                        ". Cracked password: ", crackedPassword);
+
+            }
+        }catch (InterruptedException e){
+            Thread.currentThread().interrupt();
+    }
+
+
+
+
+           /* synchronized (crackedPasswords) {
                 if (crackedPasswords.isEmpty()) {
                     try {
                         crackedPasswords.wait();
@@ -26,19 +50,21 @@ public class Consumer implements Runnable {
                         e.printStackTrace();
                     }
                 }
-                if (Objects.equals(crackedPasswords.get(0), Constants.allPasswordsCracked)) {
+                if (!crackedPasswords.isEmpty() &&
+                        Objects.equals(crackedPasswords.get(0), Constants.allPasswordsCracked)) {
                     System.out.println(Thread.currentThread().getName() + " exiting.");
                     return;
                 }
                 else {
-                    final String crackedPass = crackedPasswords.remove(0);
-                    numOfCrackedPasswords++;
-                    writeToFile(crackedPass);
-                    System.out.printf("%d%s%s%n",numOfCrackedPasswords,
-                            ". Cracked password: ", crackedPass);
+                    while(!crackedPasswords.isEmpty()){
+                        final String crackedPass = crackedPasswords.remove(0);
+                        numOfCrackedPasswords++;
+                        writeToFile(crackedPass);
+                        System.out.printf("%d%s%s%n",numOfCrackedPasswords,
+                                ". Cracked password: ", crackedPass);
+                    }
                 }
-            }
-        }
+            }*/
     }
 
     private synchronized void writeToFile(String crackedPass) {
