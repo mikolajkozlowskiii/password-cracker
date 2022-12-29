@@ -1,5 +1,5 @@
 package constants;
 
-public interface Constants {
+public interface PoisonPill {
     public static final String allPasswordsCracked = "-1";
 }

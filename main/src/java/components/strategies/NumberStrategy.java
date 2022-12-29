@@ -1,4 +1,4 @@
-package producers.strategies;
+package components.strategies;
 
 public enum NumberStrategy {
     LEFT_SIDE{

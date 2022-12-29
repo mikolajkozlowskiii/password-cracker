@@ -1,4 +1,4 @@
-package producers.strategies;
+package components.strategies;
 
 public enum CapitalizeStrategy {
     WORD_TO_LOWER_CASE {

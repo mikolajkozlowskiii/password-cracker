@@ -1,9 +1,9 @@
-package producers;
+package components;
 
 import lombok.AllArgsConstructor;
-import producers.strategies.CapitalizeStrategy;
-import producers.strategies.NumberStrategy;
-import producers.strategies.PunctuationStrategy;
+import components.strategies.CapitalizeStrategy;
+import components.strategies.NumberStrategy;
+import components.strategies.PunctuationStrategy;
 
 @AllArgsConstructor
 public class WordFormater {
@@ -56,12 +56,6 @@ public class WordFormater {
         final String capitalizedWord = capitalizeStrategy.doFormat(connectedWord);
         return numberStrategy.doFormat(capitalizedWord,iteration);
     }
-
-
-
-
-
-
 
     private String getWordWithPunctuation(String word, PunctuationStrategy punctuation,
                                           PunctuationStrategy.Position position){

@@ -1,11 +1,10 @@
 package producers;
 
-import org.junit.jupiter.api.BeforeEach;
+import components.WordFormater;
 import org.junit.jupiter.api.Test;
-import producers.WordFormater;
-import producers.strategies.CapitalizeStrategy;
-import producers.strategies.NumberStrategy;
-import producers.strategies.PunctuationStrategy;
+import components.strategies.CapitalizeStrategy;
+import components.strategies.NumberStrategy;
+import components.strategies.PunctuationStrategy;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
