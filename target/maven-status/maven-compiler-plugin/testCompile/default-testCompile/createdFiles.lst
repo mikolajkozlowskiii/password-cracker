@@ -1,0 +1,4 @@
+components\singleword\NumBothWordFormatterTest.class
+components\doubleword\NumBothWordFormatterTest.class
+components\doubleword\NumLeftWordFormatterTest.class
+components\doubleword\NumRightWordFormatterTest.class
