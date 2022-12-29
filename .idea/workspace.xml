@@ -4,25 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5674de7c-b919-4551-b89e-5752d2123990" name="Changes" comment="Return to Lists">
+    <list default="true" id="5674de7c-b919-4551-b89e-5752d2123990" name="Changes" comment="synchronized block with one producer">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/src/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/src/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/src/java/producers/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/src/java/producers/Producer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/src/java/producers/ProducerManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/md5test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/producerConsumer.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample_inputs/english_words/randomEngWords.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_inputs/english_words/randomEngWords.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample_outputs/english_words/randomEngWords.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_outputs/english_words/randomEngWords.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample_outputs/fruits/randomFruitsCracked.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_outputs/fruits/randomFruitsCracked.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample_outputs/fruits/singleWordFruitsCracked.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample_outputs/fruits/singleWordFruitsCracked.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/producers/Producer$ProducerBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/Producer$ProducerBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/producers/Producer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/producers/Producer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/producers/ProducerManager$ProducerManagerBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/producers/ProducerManager.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +27,12 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="engDictionary" />
+    <option name="BRANCH" value="synchronizedBlock" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="synchronizedBlock" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -202,6 +188,7 @@
       <workItem from="1671883039496" duration="6000" />
       <workItem from="1671995169337" duration="43870000" />
       <workItem from="1672337026791" duration="3194000" />
+      <workItem from="1672347496868" duration="236000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1669989586976</created>
