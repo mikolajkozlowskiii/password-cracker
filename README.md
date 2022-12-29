@@ -18,20 +18,20 @@ at the end of a word or in the middle of a word (if the producer creates a passw
 If contains punctuation marks, one producer is checking all 3 cases of punctuation marks. Arbitrarily decided on this strategy to optimize the operation of the program.
 The word can be written in uppercase letters, lowercase letters or only the first letter can be uppercase.
 Summarizing the strategies of created slogans by producers:
-*number of words:
-  *single 
-  *double word 
-*digits:
-  *at the beginning 
-  *end 
-  *both 
-*punctuation marks:
-  *present (at the beginning, last, middle, all 3 cases are produced)
-  *no punctuation marks 
-*word size :
-  *lowercase 
-   *uppercase 
-   *only first letter uppercase 
+* number of words:
+  * single 
+  * double word 
+* digits:
+  * at the beginning 
+  * end 
+  * both 
+* punctuation marks:
+  * present (at the beginning, last, middle, all 3 cases are produced)
+  * no punctuation marks 
+* word size :
+  * lowercase 
+   * uppercase 
+   * only first letter uppercase 
 
 
 ## Consumer
