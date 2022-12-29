@@ -10,6 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="password-cracker" target="17" />
       <module name="producerConsumer" target="17" />
     </bytecodeTargetLevel>
   </component>

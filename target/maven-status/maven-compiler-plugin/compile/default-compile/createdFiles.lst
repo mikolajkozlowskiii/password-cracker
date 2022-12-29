@@ -1,13 +1,1 @@
-WordStrategy.class
-Consumer.class
-ProducerManager$1.class
-PunctuationStrategy$POSITION.class
-Test.class
-PunctuationStrategy.class
 Main.class
-Converter.class
-ProducerManager.class
-ProducerDoubleWord.class
-AbstractProducer.class
-FileReader.class
-ProducerSingleWord.class
