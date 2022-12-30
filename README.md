@@ -7,10 +7,10 @@ Based on the extracted values from the dictionary, various combinations of words
 As this is a brute-force solution, it is not possible to create all possibilities of passwords while maintaining acceptable performance of the program.
 Therefore, we have arbitrarily chosen various strategies that, in my opinion, are most commonly used when creating passwords.
 After creating a word, it is encoded into MD5 format and then compared with the passwords given at the input, if they are equal it means that
-the password has been found and can be transferred to the Consumer.
+the password has been found and can be transferred to the Consumer. 
 
 ## Producers
-It is possible to create 36 different producers that can work in a thread-safe way.
+It is possible to create 36 different producers that can work parallelly in a thread-safe way.
 They can be divided into producers looking for passwords that are created from two words from the dictionary or from one word.
 They contain digits or not. If they contain digits, they can be at the beginning, the end or simultaneously at the beginning and the end.
 May contain punctuation marks or not. If they contain punctuation marks, they can be at the beginning,
@@ -35,8 +35,15 @@ Summarizing the strategies of created slogans by producers:
 
 
 ## Consumer
+The consumer in thread-safe way accepts broken passwords from the manufacturer and signals it in 2 ways:
+It displays the broken password in the terminal and saves it in a thread-safe way and in an interrupt-safe way to a file.e. Program interruption is possible due to the producer taking too long to look for passwords. There is always a possibility that the searched password in the input file, will not be within the range of created password configurations and may not be found.
 
 
 ## Usage  ##
+As shown in the driver (main class) you should create objects of class Thread , providing in the constructor objects of class Consumer or Producer,
+which implement the Runnable interface.  Then you need to run them using: `consumerThread.start()` `producerThread.start()`. 
+It is important that they have a common, thread-safe list, which is a kind of buffer to which broken passwords are passed. 
 
 ## Room for improvment ###
+The next step in this program is to replace synchronized blocks with watt-safe collections, which will significantly reduce the amount of code written. 
+E.g. lists and blocking queue from java.util.concurrent package.
